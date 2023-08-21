@@ -18,13 +18,7 @@ screenWidth, screenHeight = pyautogui.size()
 model = tf.keras.models.load_model('keras_model.h5', compile=False)  #Load model
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)          
 
-def text(text):   
-    global img   
-    font = ImageFont.truetype(fontpath, 50) 
-    imgPil = Image.fromarray(img)            
-    draw = ImageDraw.Draw(imgPil)          
-    draw.text((0, 0), text, fill=(255, 255, 255), font=font) 
-    img = np.array(imgPil)                   
+    
 
 cap = cv2.VideoCapture(0)
 if not cap.isOpened():
@@ -42,7 +36,6 @@ while True:
     if result.multi_hand_landmarks:
         for handLms in result.multi_hand_landmarks:
             mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS, handLmsStyle, handConStyle)
-                # 获取手腕的坐标（第0个关键点）
             wristX = int(handLms.landmark[0].x * imgWidth)
             wristY = int(handLms.landmark[0].y * imgHeight)
             mouseX = screenWidth - (wristX / imgWidth) * screenWidth
@@ -55,11 +48,9 @@ while True:
     prediction = model.predict(data)
     a,b,none= prediction[0]
     if a>0.92:
-        text('Move')  
         pyautogui.mouseUp()
         pyautogui.moveTo(mouseX, mouseY)
     if b>0.92:
-        text('Click')
         pyautogui.mouseDown()
         pyautogui.moveTo(mouseX, mouseY)
 
