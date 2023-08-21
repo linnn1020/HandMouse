@@ -22,3 +22,7 @@
 ```
 
 > **v.3**
+```
+改變了動作的判斷方式
+採用Google Teachable Machine 訓練模型
+```
