@@ -26,3 +26,11 @@
 改變了動作的判斷方式
 採用Google Teachable Machine 訓練模型
 ```
+
+
+> **v.4**
+```
+改變了動作的判斷方式
+採用數學算法計算手指角度
+基於https://blog.csdn.net/weixin_45930948/article/details/115444916進行了修改
+```
