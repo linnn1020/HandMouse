@@ -32,5 +32,12 @@
 ```
 改變了動作的判斷方式
 採用數學算法計算手指角度
-基於https://blog.csdn.net/weixin_45930948/article/details/115444916進行了修改
+基於https://blog.csdn.net/weixin_45930948/article/details/115444916進行修改
+新增滾輪動作(食指中指併攏左右傾斜)
+```
+
+
+> **v.5**
+```
+
 ```
